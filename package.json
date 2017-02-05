@@ -1,0 +1,24 @@
+{
+  "name": "zxing-online-wrapper",
+  "version": "1.0.0",
+  "description": "Wrapper around zxing.org website",
+  "main": "dist/index.js",
+  "typings": "index.d.ts",
+  "repository": "git@github.com:Alex0007/zxing-online-wrapper.git",
+  "author": "Alex0007 <Alex0007lolpvp@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "ts-watch": "tsc --watch -p ."
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "lodash": "^4.17.4",
+    "request-observable": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.17.31",
+    "dts-gen": "^0.4.20",
+    "typescript": "^2.1.5"
+  }
+}
