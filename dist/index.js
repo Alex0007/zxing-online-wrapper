@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const cheerio = require("cheerio");
 const fs = require("fs");
 const lodash_1 = require("lodash");
@@ -61,5 +62,4 @@ const recognizeBarcode = (input) => {
         .map(parseHtml)
         .toPromise();
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = recognizeBarcode;

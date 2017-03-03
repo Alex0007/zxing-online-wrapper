@@ -10,5 +10,5 @@ export interface ParseResult {
  * Tries to recognize barcode from the image.
  * Image can be buffer, path or url
  */
-declare const recognizeBarcode: (input: string | Buffer) => any;
+declare const recognizeBarcode: (input: string | Buffer) => Promise<ParseResult[]>;
 export default recognizeBarcode;
