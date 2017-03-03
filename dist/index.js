@@ -1,31 +1,35 @@
 "use strict";
-const fs = require("fs");
-const url = require("url");
 const cheerio = require("cheerio");
-const request_observable_1 = require("request-observable");
+const fs = require("fs");
 const lodash_1 = require("lodash");
+const request_observable_1 = require("request-observable");
+const url = require("url");
 const commonRequestParams = {
-    url: 'https://zxing.org/w/decode',
-    method: 'POST'
+    method: 'POST',
+    url: 'https://zxing.org/w/decode'
 };
 const parseHtml = (body) => {
+    const result = [];
     const $ = cheerio.load(body);
-    const tdList = [];
-    $('#result td').each(function (index, elem) {
-        let text = $(elem).text();
-        if (index % 2 === 0) {
-            text = lodash_1.camelCase(text);
-        }
-        tdList.push(text);
+    $('#result').each((_, table) => {
+        const tdList = [];
+        $(table).find('td').each((index, elem) => {
+            let text = $(elem).text();
+            if (index % 2 === 0) {
+                text = lodash_1.camelCase(text);
+            }
+            tdList.push(text);
+        });
+        const parsedResult = lodash_1.fromPairs(lodash_1.chunk(tdList.length ? tdList : ['parsedResult', null], 2));
+        result.push(parsedResult);
     });
-    return lodash_1.fromPairs(lodash_1.chunk(tdList.length ? tdList : ['parsedResult', null], 2));
+    return lodash_1.sortBy(result, (parsedResult) => -parsedResult.rawText.length);
 };
 /**
  * Tries to recognize barcode from the image.
  * Image can be buffer, path or url
  */
 const recognizeBarcode = (input) => {
-    console.log('input', input);
     let params;
     if (Buffer.isBuffer(input)) {
         params = Object.assign(commonRequestParams, {

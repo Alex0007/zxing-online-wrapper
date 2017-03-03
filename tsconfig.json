@@ -5,7 +5,9 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "dist"
+    "outDir": "dist",
+    "noImplicitAny": true,
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules"

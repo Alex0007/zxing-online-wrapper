@@ -1,0 +1,24 @@
+{
+    "extends": "tslint:latest",
+    "rules": {
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
+        "trailing-comma": [
+            true,
+            {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        ]
+    }
+}

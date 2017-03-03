@@ -1,6 +1,6 @@
 {
   "name": "zxing-online-wrapper",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Wrapper around zxing.org website",
   "main": "dist/index.js",
   "typings": "index.d.ts",
@@ -9,16 +9,22 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
+    "lint": "tslint -c tslint.json index.ts",
+    "test": "ava ./test.js",
     "ts-watch": "tsc --watch -p ."
   },
   "dependencies": {
     "cheerio": "^0.22.0",
     "lodash": "^4.17.4",
-    "request-observable": "^3.0.1"
+    "request": "^2.79.0",
+    "request-observable": "^4.0.0",
+    "rxjs": "^5.2.0"
   },
   "devDependencies": {
     "@types/cheerio": "^0.17.31",
-    "dts-gen": "^0.4.20",
-    "typescript": "^2.1.5"
+    "@types/lodash": "^4.14.54",
+    "ava": "^0.18.2",
+    "tslint": "^4.5.1",
+    "typescript": "^2.2.1"
   }
 }
