@@ -1,6 +1,6 @@
 {
   "name": "zxing-online-wrapper",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Wrapper around zxing.org website",
   "main": "dist/index.js",
   "typings": "index.d.ts",
