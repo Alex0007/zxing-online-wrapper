@@ -2,21 +2,15 @@ import test from "ava";
 import recognize from "./dist/index";
 
 test((t) => {
-    return recognize("https://scontent.xx.fbcdn.net/v/t35.0-12/17036550_1884997368448574_1878528253_o.jpg?_nc_ad=z-m&oh=c12bf09f39cd44fb7fb2e7c4a64594a4&oe=58BB981E")
+    return recognize("https://developer.xamarin.com/samples/monotouch/QRchestra/Screenshots/xamarin-barcode.png")
         .then((result) => {
             t.deepEqual(result, [{
-                rawText: "856238006006",
-                rawBytes: "(Not applicable)",
-                barcodeFormat: "UPC_A",
-                parsedResultType: "PRODUCT",
-                parsedResult: "856238006006",
-            },
-            {
-                rawText: "15934109",
-                rawBytes: "(Not applicable)",
-                barcodeFormat: "UPC_E",
-                parsedResultType: "PRODUCT",
-                parsedResult: "15934109",
+                rawText: 'www.xamarin.com',
+                rawBytes:
+                    '40 f7 77 77 72 e7 86 16   d6 17 26 96 e2 e6 36 f6\nd0 ec 11 ',
+                barcodeFormat: 'QR_CODE',
+                parsedResultType: 'URI',
+                parsedResult: 'http://www.xamarin.com'
             }]);
         })
         .catch((err) => t.fail(err));
